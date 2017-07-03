@@ -9,8 +9,8 @@ import java.io.*;
 
 class pad extends JFrame implements ActionListener,WindowListener
 {
-	JTextArea jt1;
-	color c1 = new color("COLOR");
+	static JTextArea jt1;
+	
 	pad(String s)
 	{
 		super(s);
@@ -91,14 +91,14 @@ class pad extends JFrame implements ActionListener,WindowListener
 		mi3_2.addActionListener(this);
 		mi3_3.addActionListener(this);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		}
 		
 		public void actionPerformed(ActionEvent ae)
 		{
 			if(ae.getActionCommand()=="NEW")
 			{
-				jt1.setText("");
+				newfile();
 			}
 			if(ae.getActionCommand()=="OPEN")
 			{
@@ -146,7 +146,7 @@ class pad extends JFrame implements ActionListener,WindowListener
 		
 		public void windowClosing(WindowEvent we)
 		{
-			System.out.println("CLOSING");
+			newfile();
 		}
 		
 		public void windowIconified(WindowEvent we)
@@ -204,7 +204,7 @@ class pad extends JFrame implements ActionListener,WindowListener
 		
 		}	
 	
-	void save()
+	static void save()
 	{
 		try
 		{
@@ -229,7 +229,14 @@ class pad extends JFrame implements ActionListener,WindowListener
 		}
 	}
 	
-	
+	void newfile()
+	{
+		warning w1 = new warning("WARNING !!");
+					w1.setVisible(true);
+					w1.setSize(400,200);
+					w1.setLocation(600,350);
+					w1.setResizable(false);
+	}
 	
 	
 	

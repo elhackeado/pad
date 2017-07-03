@@ -23,7 +23,7 @@ public class color extends JFrame implements ActionListener
 		jb3.setBounds(252,530,150,20);
 		jp1.add(jb3);
 		
-		JColorChooser jss = new JColorChooser();
+		jss = new JColorChooser();
 		jss.setBounds(0,0,500,500);
 		jp1.add(jss);
 		add(jp1,BorderLayout.CENTER);
@@ -43,14 +43,13 @@ public class color extends JFrame implements ActionListener
 		{
 			setVisible(false);
 		}
-		
 		if(msg.equals("SET BG"))
 		{
-			pad p1 = new pad("");
-			color c1 = new color("");
-			p1.jt1.setBackground(c1.jss.getColor());
-			System.out.println("dsfgsdg");
-			
+			pad.jt1.setBackground(jss.getColor());
+		}	
+		if(msg.equals("SET FG"))
+		{
+			pad.jt1.setForeground(jss.getColor());
 		}	
 	}
 	
